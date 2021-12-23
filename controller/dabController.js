@@ -1,11 +1,12 @@
 const Compte = require('../models/compte');
+
 class Comptes{
 
     //get all comptes
     getAll= async (req , res)=>{
         try{
             const comptes = await Compte.find()
-            res.json(comptes)
+            res.json({comptes})
         }catch(error){
             res.status(500).json({compte : error})
         }
@@ -34,9 +35,11 @@ class Comptes{
 
     //update compte
     updateCompte =  async (req,res)=>{
-        const updateCompte = await Compte.findByIdAndUpdate(req.params.id,{
+        console.log( req.body.firstName)
+        const updateCompte =  await Compte.findByIdAndUpdate(req.params.id,{
+        
 
-            firstName: req.body.firstName,
+            firstName:  req.body.firstName,
             lastName: req.body.lastName,
             password: req.body.password,
             email: req.body.email,
@@ -45,6 +48,7 @@ class Comptes{
         },{useFindAndModify:true , new : true})
         if(updateCompte){
             res.json({Compte: updateCompte})
+           
         }
     }
     // get un seul compte

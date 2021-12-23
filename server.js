@@ -8,6 +8,9 @@ mongoose.Promise = global.Promise;
 const bodyParser = require('body-parser');
 var dabController = require('./controller/dabController');
 const comptesRouter = require('./routes/comptesRouter');
+const cors = require('cors');
+
+
 
 const uri = process.env.DATABASE_URL ; 
 // mongoose config 
@@ -25,8 +28,12 @@ mongoose.connect( uri,
   });
 
 const app = express();
+app.use(cors({
+  methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
+}));
 
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 
 
@@ -36,11 +43,11 @@ app.get('/', (req, res) => {
     res.json({"message": "Server is running :D"});
 });
 
-let PORT = 8080
+let PORT = 8082
 //eureka config
 const eureka = new Eureka({
     instance: {
-      app: 'Dabservice',
+      app: 'Dabservices',
       hostName: 'localhost',
       ipAddr: '127.0.0.1',
       statusPageUrl: 'http://localhost:5000',
