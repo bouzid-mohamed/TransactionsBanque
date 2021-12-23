@@ -1,0 +1,17 @@
+.content {
+    height: calc(100vh - 98px);
+    border-radius: 50px;
+    margin: 0px;
+    margin-left: 0px;
+    font-size: 5rem;
+    color: lightgray;
+    margin-top: 10%;
+}
+
+.menu-button {
+    width: 100%;
+}
+
+.iconright {
+    margin-right: 10px;
+}

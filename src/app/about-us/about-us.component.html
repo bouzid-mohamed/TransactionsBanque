@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <app-tool-bar> </app-tool-bar>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <app-toolbar></app-toolbar>
+        </div>
+        <div class="col-10">
+            <div *ngIf=" loaderService.isLoading| async" class="loader-container">
+                <mat-progress-bar mode="query"></mat-progress-bar>
+
+            </div>
+            <div class="container">
+
+
+                <table mdbTable>
+                    <thead>
+                        <tr>
+                            <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr mdbTableCol *ngFor="let p of listTransactions">
+                            <th scope="row">{{p.debiteur}}</th>
+
+
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h1>Add new product </h1>
+
+
+            </div>
+        </div>
+    </div>
+</div>

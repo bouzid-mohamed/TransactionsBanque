@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Design by foolishdeveloper.com -->
+    <title>Glassmorphism login Form Tutorial in html css</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+
+</head>
+
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <form [hidden]=formlogin>
+
+
+        <h3>Login Here</h3>
+
+        <label for="em">Email</label>
+        <input type="email" placeholder="Email" [(ngModel)]="em" id="em" name="em">
+
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="mdp" name="mdp" [(ngModel)]="mdp">
+
+        <button value="looo" (click)="login()">Log In</button>
+
+        <div class="social">
+            <div class="go" (click)="formsiginin()" style="cursor: pointer;">sign in</div>
+
+        </div>
+        <p style="color: red; ">{{ text }}</p>
+    </form>
+
+    <form style="height: 80%;" [hidden]=formsigninv #f="ngForm">
+
+
+        <h3>Sign in Here</h3>
+
+        <label for="username">First Name </label>
+        <input type="text" placeholder="First Name" id="em" name="first" [(ngModel)]="user.firstName" #firstName="ngModel" required>
+
+        <label for="username">Last Name </label>
+        <input type="text" placeholder="Last Name " id="em" name="last" [(ngModel)]="user.lastName" #lastName="ngModel" required>
+
+        <label for="username">Email</label>
+        <input type="text" placeholder="Email" id="em" name="emai" [(ngModel)]="user.email" #email="ngModel" required>
+
+
+
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="mdp" name="mdp" [(ngModel)]="user.password" #password="ngModel" required>
+
+        <button value="looo" (click)="carte()">Next</button>
+
+
+        <p style="color: red; ">{{ text }}</p>
+    </form>
+
+    <form style="height: 60%;" [hidden]=formcarte>
+
+
+        <h3>Transaction</h3>
+
+        <label for="username">Rib </label>
+        <input type="text" placeholder="Rib" name="id" [(ngModel)]="dab.id" #id="ngModel" required>
+
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="mdp" name="mdp" [(ngModel)]="dab.password" #password="ngModel" required>
+
+        <label for="username">Sum</label>
+        <input type="text" placeholder="Solde" [(ngModel)]="dab.solde" #solde="ngModel" required id="em" name="em">
+
+        <button value="looo" (click)="adduser()">Submit</button>
+
+
+        <p style="color: red; ">{{ text }}</p>
+    </form>
+
+</body>
+
+</html>
